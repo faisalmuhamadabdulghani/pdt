@@ -1,0 +1,32 @@
+// Tampilkan semua postingan
+db.posts.find().pretty()
+
+// Tampilkan semua postingan
+db.posts.find({author: "Faisal"}).pretty()
+
+// Temukan Postingan oleh penulis tertentu	
+db.posts.find({author: "Faisal"}).pretty()
+
+// Temukan postingan dengan tag tertentu	
+db.posts.find({tags:"N5"}).pretty()
+
+// Tambahkan komentar ke postingan	
+db.posts.updateOne(
+    {title:"Penyusunan Bunpou N5 Bahasa Jepang"}, 
+    {$push:{
+        comments:{
+            author:"Kevin", text:"Sangat bisa dipahami"}
+            }
+         }
+    )
+
+// Perbarui isi postingan	
+db.posts.updateOne(
+    {title:"Penyusunan Bunpou N5 Bahasa Jepang"}, 
+    {$set: {
+        content: "Penyusunan Pola Kalimat Bahasa Jepang"}
+        }
+    )
+
+// Hapus satu postingan	
+db.posts.deleteOne({title: "Belajar Bahasa Jepang N5"})

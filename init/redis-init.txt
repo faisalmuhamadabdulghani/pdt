@@ -1,0 +1,18 @@
+# Tambahkan skor pemain
+ZADD leaderboard 100 "Faisal"
+ZADD leaderboard 150 "Lukman"
+ZADD leaderboard 120 "Aldy"
+ZADD leaderboard 80 "Azam"
+ZADD leaderboard 130 "Kevin"
+
+# Ambil 3 pemain teratas
+ZREVRANGE leaderboard 0 2 WITHSCORES
+
+# Ambil peringkat pemain tertentu
+ZREVRANK leaderboard "Faisal"
+
+# Ambil skor pemain tertentu
+ZSCORE leaderboard "Faisal"
+
+# Tambahkan skor ke pemain tertentu
+ZINCRBY leaderboard 50 "Faisal"
